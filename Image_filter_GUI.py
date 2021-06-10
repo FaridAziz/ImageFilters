@@ -9,15 +9,15 @@ import datetime
 windo = Tk()
 windo.configure(background='white')
 windo.title("Image Filters")
-width = windo.winfo_screenwidth()
-height = windo.winfo_screenheight()
+width = 1100
+height = 500
 print(width, height)
 windo.geometry(f'{width}x{height}')
 windo.iconbitmap('./images/app.ico')
 windo.resizable(0, 0)
 
 # Size for displaying Image
-w = 400;
+w = 400
 h = 280
 size = (w, h)
 
@@ -26,7 +26,7 @@ def upload_im():
     try:
         global im, resized
         imageFrame = tk.Frame(windo)
-        imageFrame.place(x=415, y=60)
+        imageFrame.place(x=200, y=100)
         path = filedialog.askopenfilename()
         im = Image.open(path)
         resized = im.resize(size, Image.ANTIALIAS)
@@ -35,15 +35,15 @@ def upload_im():
         display.imgtk = tkimage
         display.configure(image=tkimage)
         display.grid()
-        dn1 = tk.Label(windo, text='Original Image ', width=20, height=1, fg="white", bg="maroon1",
+        dn1 = tk.Label(windo, text='Sebelum ', width=20, height=1, fg="white", bg="maroon1",
                        font=('times', 22, ' bold '))
-        dn1.place(x=444, y=20)
+        dn1.place(x=200, y=70)
     except:
         del im
         noti = tk.Label(windo, text='Please upload an Image File', width=33, height=1, fg="black",
                         bg="dodgerblue2",
                         font=('times', 15, ' bold '))
-        noti.place(x=844, y=370)
+        noti.place(x=244, y=370)
         windo.after(5000, destroy_widget, noti)
 
 
@@ -57,10 +57,10 @@ def gray_filter():
         resi = gray.resize(size, Image.ANTIALIAS)
         tkimage1 = ImageTk.PhotoImage(resi)
         imageFrame1 = tk.Frame(windo)
-        imageFrame1.place(x=845, y=60)
-        dn1 = tk.Label(windo, text='Gray Image ', width=20, height=1, fg="white", bg="black",
+        imageFrame1.place(x=645, y=100)
+        dn1 = tk.Label(windo, text='Sesudah ', width=20, height=1, fg="white", bg="black",
                        font=('times', 22, ' bold '))
-        dn1.place(x=874, y=20)
+        dn1.place(x=674, y=70)
         display1 = tk.Label(imageFrame1)
         display1.imgtk = tkimage1
         display1.configure(image=tkimage1)
@@ -70,7 +70,7 @@ def gray_filter():
         noti = tk.Label(windo, text='Please upload an Image', width=33, height=1, fg="black",
                         bg="violet red1",
                         font=('times', 15, ' bold '))
-        noti.place(x=844, y=370)
+        noti.place(x=244, y=370)
         windo.after(5000, destroy_widget, noti)
 
 
@@ -94,10 +94,10 @@ def cartoon_filter():
         resi = pil_image.resize(size, Image.ANTIALIAS)
         tkimage2 = ImageTk.PhotoImage(resi)
         imageFrame2 = tk.Frame(windo)
-        imageFrame2.place(x=845, y=60)
-        dn2 = tk.Label(windo, text='Cartoon Image ', width=20, height=1, fg="black", bg="deep sky blue",
+        imageFrame2.place(x=645, y=100)
+        dn2 = tk.Label(windo, text='Sesudah ', width=20, height=1, fg="black", bg="deep sky blue",
                        font=('times', 22, ' bold '))
-        dn2.place(x=874, y=20)
+        dn2.place(x=674, y=70)
         display2 = tk.Label(imageFrame2)
         display2.imgtk = tkimage2
         display2.configure(image=tkimage2)
@@ -106,7 +106,7 @@ def cartoon_filter():
         print(e)
         noti = tk.Label(windo, text='Please upload an Image', width=33, height=1, fg="black", bg="gold",
                         font=('times', 15, ' bold '))
-        noti.place(x=844, y=370)
+        noti.place(x=244, y=370)
         windo.after(5000, destroy_widget, noti)
 
 
@@ -123,10 +123,10 @@ def sketch_filter():
         resi = op.resize(size, Image.ANTIALIAS)
         tkimage3 = ImageTk.PhotoImage(resi)
         imageFrame3 = tk.Frame(windo)
-        imageFrame3.place(x=845, y=60)
-        dn3 = tk.Label(windo, text='Sketch Image ', width=20, height=1, fg="black", bg="gray80",
+        imageFrame3.place(x=645, y=100)
+        dn3 = tk.Label(windo, text='Sesudah ', width=20, height=1, fg="black", bg="gray80",
                        font=('times', 22, ' bold '))
-        dn3.place(x=874, y=20)
+        dn3.place(x=674, y=70)
         display3 = tk.Label(imageFrame3)
         display3.imgtk = tkimage3
         display3.configure(image=tkimage3)
@@ -134,7 +134,7 @@ def sketch_filter():
     except:
         noti = tk.Label(windo, text='Please upload an Image', width=33, height=1, fg="white", bg="black",
                         font=('times', 15, ' bold '))
-        noti.place(x=844, y=370)
+        noti.place(x=244, y=370)
         windo.after(5000, destroy_widget, noti)
 
 
@@ -158,17 +158,17 @@ def face_eye_det_filter():
             notip1 = tk.Label(windo, text='Face not found in Image!!', width=33, height=1,
                               fg="white", bg="midnightblue",
                               font=('times', 15, ' bold '))
-            notip1.place(x=844, y=370)
+            notip1.place(x=244, y=370)
             windo.after(5000, destroy_widget, notip1)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         op = Image.fromarray(img)
         resi = op.resize(size, Image.ANTIALIAS)
         tkimage4 = ImageTk.PhotoImage(resi)
         imageFrame4 = tk.Frame(windo)
-        imageFrame4.place(x=845, y=60)
-        dn4 = tk.Label(windo, text='Face & Eye Image ', width=20, height=1, fg="white", bg="navy",
+        imageFrame4.place(x=645, y=100)
+        dn4 = tk.Label(windo, text='Sesudah ', width=20, height=1, fg="white", bg="navy",
                        font=('times', 22, ' bold '))
-        dn4.place(x=874, y=20)
+        dn4.place(x=674, y=70)
         display4 = tk.Label(imageFrame4)
         display4.imgtk = tkimage4
         display4.configure(image=tkimage4)
@@ -177,7 +177,7 @@ def face_eye_det_filter():
         notip = tk.Label(windo, text='Face not found in Image!!', width=33, height=1,
                          fg="white", bg="midnightblue",
                          font=('times', 15, ' bold '))
-        notip.place(x=844, y=370)
+        notip.place(x=244, y=370)
         windo.after(5000, destroy_widget, notip)
         print(e)
 
@@ -214,61 +214,28 @@ def destroy_widget(widget):
     widget.destroy()
 
 
-dn = tk.Label(windo, text='Image Filters', width=20, height=1, fg="white", bg="blue2",
-              font=('times', 22, ' bold '))
-dn.place(x=24, y=20)
-
-
-sad_img = ImageTk.PhotoImage(Image.open("./images/logo.png"))
-panel4 = Label(windo, image=sad_img)
-panel4.pack()
-panel4.place(x=20, y=60)
-
-up = tk.Button(windo, text='Upload Image', bg="spring green", fg="black", width=20,
+up = tk.Button(windo, text='Upload Gambar', bg="spring green", fg="black", width=20,
                height=1, font=('times', 22, 'italic bold '), command=upload_im, activebackground='yellow')
-up.place(x=20, y=340)
+up.place(x=20, y=20)
 
-hat1 = PhotoImage(file="./images/sketch.png")
-hat_f = tk.Button(windo, borderwidth=0, bg='white', image=hat1, command=sketch_filter)
-hat_f.place(x=50, y=480)
+hat_f = tk.Button(windo, text="Sketch", borderwidth=0, bg='white', command=sketch_filter,
+                  height=1, font=('times', 22, 'italic bold '), activebackground='yellow')
+hat_f.place(x=20, y=120)
 
-sk = tk.Label(windo, text="Sketch", bg="violet red1", fg="black", width=11,
-              height=1, font=('times', 16, 'italic bold '))
-sk.place(x=48, y=587)
+sg_f = tk.Button(windo, text="Cartoon", borderwidth=0, bg='white', command=cartoon_filter,
+                 height=1, font=('times', 22, 'italic bold '), activebackground='yellow')
+sg_f.place(x=20, y=170)
 
-sg = PhotoImage(file="./images/cartoon.png")
-sg_f = tk.Button(windo, borderwidth=0, bg='white', image=sg, command=cartoon_filter)
-sg_f.place(x=250, y=480)
+dog_f = tk.Button(windo, text="Black & White", borderwidth=0, bg='white', command=gray_filter,
+                  height=1, font=('times', 22, 'italic bold '), activebackground='yellow')
+dog_f.place(x=20, y=220)
 
-ca = tk.Label(windo, text="Cartoon", bg="violet red1", fg="black", width=11,
-              height=1, font=('times', 16, 'italic bold '))
-ca.place(x=248, y=587)
+snap = tk.Button(windo, text="Simpan Gambar", borderwidth=0, bg='white', command=save_img,
+                 height=1, font=('times', 22, 'italic bold '), activebackground='yellow')
+snap.place(x=250, y=20)
 
-dog_p = PhotoImage(file="./images/bw.png")
-dog_f = tk.Button(windo, borderwidth=0, bg='white', image=dog_p, command=gray_filter)
-dog_f.place(x=450, y=480)
+fd = tk.Button(windo, text="Face Detection", borderwidth=0, bg='white', command=face_eye_det_filter,
+               height=1, font=('times', 22, 'italic bold '), activebackground='yellow')
+fd.place(x=20, y=270)
 
-bw = tk.Label(windo, text="Black & White", bg="violet red1", fg="black", width=11,
-              height=1, font=('times', 16, 'italic bold '))
-bw.place(x=448, y=587)
-
-snap_p = PhotoImage(file="./images/save.png")
-snap = tk.Button(windo, borderwidth=0, bg='white', image=snap_p, command=save_img)
-snap.place(x=850, y=480)
-
-fd_p = PhotoImage(file="./images/fd.png")
-fd = tk.Button(windo, borderwidth=0, bg='white', image=fd_p, command=face_eye_det_filter)
-fd.place(x=650, y=480)
-
-f = tk.Label(windo, text="Face Detection", bg="violet red1", fg="black", width=11,
-             height=1, font=('times', 16, 'italic bold '))
-f.place(x=648, y=587)
-
-sv = tk.Label(windo, text="Save Image", bg="violet red1", fg="black", width=11,
-              height=1, font=('times', 16, 'italic bold '))
-sv.place(x=848, y=587)
-
-quit_p = PhotoImage(file="./images/quit.png")
-q = tk.Button(windo, borderwidth=0, bg='white', image=quit_p, command=leave)
-q.place(x=1050, y=480)
 windo.mainloop()
