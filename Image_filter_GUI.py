@@ -13,7 +13,6 @@ width = 1100
 height = 500
 print(width, height)
 windo.geometry(f'{width}x{height}')
-windo.iconbitmap('./images/app.ico')
 windo.resizable(0, 0)
 
 # Size for displaying Image
@@ -26,7 +25,7 @@ def upload_im():
     try:
         global im, resized
         imageFrame = tk.Frame(windo)
-        imageFrame.place(x=200, y=100)
+        imageFrame.place(x=250, y=100)
         path = filedialog.askopenfilename()
         im = Image.open(path)
         resized = im.resize(size, Image.ANTIALIAS)
@@ -37,13 +36,13 @@ def upload_im():
         display.grid()
         dn1 = tk.Label(windo, text='Sebelum ', width=20, height=1, fg="white", bg="maroon1",
                        font=('times', 22, ' bold '))
-        dn1.place(x=200, y=70)
+        dn1.place(x=250, y=70)
     except:
         del im
         noti = tk.Label(windo, text='Please upload an Image File', width=33, height=1, fg="black",
                         bg="dodgerblue2",
                         font=('times', 15, ' bold '))
-        noti.place(x=244, y=370)
+        noti.place(x=294, y=370)
         windo.after(5000, destroy_widget, noti)
 
 
@@ -214,7 +213,7 @@ def destroy_widget(widget):
     widget.destroy()
 
 
-up = tk.Button(windo, text='Upload Gambar', bg="spring green", fg="black", width=20,
+up = tk.Button(windo, text='Upload Gambar', bg="spring green", fg="black", width=15,
                height=1, font=('times', 22, 'italic bold '), command=upload_im, activebackground='yellow')
 up.place(x=20, y=20)
 
