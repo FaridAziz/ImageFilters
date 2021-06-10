@@ -190,13 +190,13 @@ def save_img():
         dna = tk.Label(windo, text=filename + ' Captured', width=33, height=1, fg="black",
                        bg="spring green",
                        font=('times', 15, ' bold '))
-        dna.place(x=844, y=370)
+        dna.place(x=674, y=370)
         windo.after(5000, destroy_widget, dna)
     except Exception as e:
         print(e)
         noti = tk.Label(windo, text='Please upload an Image', width=33, height=1, fg="black", bg="cyan2",
                         font=('times', 15, ' bold '))
-        noti.place(x=844, y=370)
+        noti.place(x=674, y=370)
         windo.after(5000, destroy_widget, noti)
 
 
@@ -213,7 +213,7 @@ def destroy_widget(widget):
     widget.destroy()
 
 
-up = tk.Button(windo, text='Upload Gambar', bg="spring green", fg="black", width=15,
+up = tk.Button(windo, text='Upload Gambar', bg="spring green", fg="black",
                height=1, font=('times', 22, 'italic bold '), command=upload_im, activebackground='yellow')
 up.place(x=20, y=20)
 
