@@ -176,7 +176,7 @@ def face_eye_det_filter():
         notip = tk.Label(windo, text='Face not found in Image!!', width=33, height=1,
                          fg="white", bg="midnightblue",
                          font=('times', 15, ' bold '))
-        notip.place(x=244, y=370)
+        notip.place(x=674, y=370)
         windo.after(5000, destroy_widget, notip)
         print(e)
 
